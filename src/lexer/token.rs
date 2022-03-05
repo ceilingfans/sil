@@ -11,11 +11,11 @@ pub enum TokenType {
     RPAREN,
     LBRACE,
     RBRACE,
-    IDENT,
-    KEYWORD,
     BANG,
     PIPE,
-    NUMBER,
+    NUMBER(i64),
+    IDENT(String),
+    KEYWORD(String),
     UNARY(char),
 }
 
