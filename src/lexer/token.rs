@@ -40,20 +40,4 @@ impl Token {
     pub fn new() -> Self {
         Default::default()
     }
-
-    pub fn set_location(mut self, loc: Loc) -> Self {
-        self.location = loc;
-        self
-    }
-
-    pub fn set_type(mut self, ty: TokenType) -> Self {
-        self.ty = ty;
-        self
-    }
-
-    pub fn set_literal(mut self, literal: String) -> Self {
-        self.literal = literal;
-        self
-    }
 }
-
