@@ -18,6 +18,18 @@ impl Lexer {
             ..Default::default()
         }
     }
+
+    fn current_char(&self) -> char {
+        self.source.as_bytes()[self.current_index] as char
+    }
+
+    fn peek_next(&self) -> Option<char> {
+        if self.current_index >= self.source.len() - 1 {
+            None
+        } else {
+            Some(self.source.as_bytes()[self.current_index + 1] as char)
+        }
+    }
 }
 
 impl Default for Lexer {
