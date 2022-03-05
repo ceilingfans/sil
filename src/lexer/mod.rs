@@ -30,6 +30,24 @@ impl Lexer {
             Some(self.source.as_bytes()[self.current_index + 1] as char)
         }
     }
+
+    fn read_number(&mut self) -> Option<i64> {
+        if !self.current_char().is_ascii_digit() {
+            None
+        }
+        let mut number_literal = String::new();
+        while self.peek_next().is_some() {
+            let c = self.current_char();
+            if c.is_ascii_digit() {
+                number_literal.push(c);
+                self.current_index += 1;
+            } else {
+                break;
+            }
+        }
+
+        Some(number_literal.parse::<i64>().unwrap())
+    }
 }
 
 impl Default for Lexer {
