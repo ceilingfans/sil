@@ -1,5 +1,3 @@
-use std::fmt::{Display, Formatter};
-
 #[derive(Debug)]
 pub struct Loc {
     pub position: u64,
