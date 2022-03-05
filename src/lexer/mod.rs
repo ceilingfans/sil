@@ -31,9 +31,9 @@ impl Lexer {
         }
     }
 
-    fn read_number(&mut self) -> Option<i64> {
+    pub fn read_number(&mut self) -> Option<i64> {
         if !self.current_char().is_ascii_digit() {
-            None
+            return None;
         }
         let mut number_literal = String::new();
         while self.peek_next().is_some() {
