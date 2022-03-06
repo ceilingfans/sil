@@ -36,7 +36,7 @@ impl Lexer {
             return None;
         }
         let mut number_literal = String::new();
-        while self.peek_next().is_some() {
+        while self.current_index < self.source.len() {
             let c = self.current_char();
             if c.is_ascii_digit() {
                 number_literal.push(c);
