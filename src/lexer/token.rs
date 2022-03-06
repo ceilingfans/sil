@@ -4,17 +4,24 @@ use logos::Logos;
 pub enum TokenKind {
     #[error]
     #[regex(r"[ \t\n\f]+", logos::skip)]
-    ERROR,
-    LPAREN,
-    RPAREN,
-    LBRACE,
-    RBRACE,
-    NUMBER(i64),
-    IDENT(String),
-    KEYWORD(String),
-    UNARY(char),
+    Error,
+    #[token("(")]
+    LParen,
+    #[token(")")]
+    RParen,
+    #[token("{")]
+    LBrace,
+    #[token("}")]
+    RBrace,
+    #[regex("[0-9]+")]
+    Number,
+    #[regex("[_a-zA-Z][_0-9a-zA-Z]*")]
+    Ident,
+    #[regex("(fn|let|while|if)")]
+    Keyword,
 }
 
+#[derive(Debug)]
 pub struct Token {
     pub literal: String,
     pub kind: TokenKind,
