@@ -33,6 +33,8 @@ pub enum TokenKind {
     Divide,
     #[token("!")]
     Bang,
+
+    // Other
     #[token("|")]
     Pipe,
     #[token("&")]
@@ -49,6 +51,8 @@ pub enum TokenKind {
     Ident,
     #[regex("(fn|let|while|if)")]
     Keyword,
+    #[regex(r#""(?:[^"]|\\")*""#)]
+    String,
 }
 
 #[derive(Debug)]
